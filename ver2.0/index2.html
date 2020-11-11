@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue todo-list / done-list</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    </head>
+    <body>
+        <div id="root">
+            <div class="input-box">
+                <input @keyup="addItemWEnter" type="text"v-model="nextTodoItem" placeholder="Inserisci la prossima cosa da fare">
+                <button @click="addItem" type="button" name="button">Aggiungi</button>
+            </div>
+            <div class="lists-wrapper">
+                <div class="todo-list container">
+                    <h1>TODO LIST</h1>
+                    <ul class="todo-list">
+                        <li v-for="(item, index) in todoList"
+                        @click="todoToDone(item, index)">
+                        <label :for="item">{{ item }}</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="done-list container">
+                    <h1>DONE LIST</h1>
+                    <ul class="done-list">
+                        <li v-for="(item, index) in doneList"
+                        class="done"
+                        @click="doneToTodo(item, index)">
+                        <label :for="item">{{ item }}</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="main2.js" charset="utf-8"></script>
+    </body>
+</html>

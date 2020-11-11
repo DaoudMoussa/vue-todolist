@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.lists-wrapper {
+    display: flex;
+    justify-content: center
+}
+
+.done-list {
+    padding: 10px 0 0 20px;
+}
+
+.todo-list {
+    padding: 10px 20px 0 0;
+}
+
+.container li {
+    cursor: pointer;
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+.container li * {
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.8;
+}
