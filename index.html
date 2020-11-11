@@ -17,9 +17,11 @@
             <div class="todo-list-container">
                 <h1>TODO LIST</h1>
                 <ul class="todo-list">
-                    <li v-for="(item, index) in todoList">
-                        <!-- <input v-model="input" type="checkbox" name="done" :value="index"> -->
-                        <label for="done">{{ item }}</label>
+                    <li v-for="(item, index) in todoList"
+                        :class="statusArray[index]"
+                        @click="toggleItem(index)">
+                        <input type="checkbox" :name="item" :value="index">
+                        <label :for="item">{{ item }}</label>
                     </li>
                 </ul>
             </div>
