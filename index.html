@@ -10,8 +10,12 @@
     </head>
     <body>
         <div id="root">
-            <div class="inputbox"></div>
+            <div class="input-box">
+                <input @keyup="addItemWEnter" type="text"v-model="nextTodoItem" placeholder="Inserisci la prossima cosa da fare">
+                <button @click="addItem" type="button" name="button">Aggiungi</button>
+            </div>
             <div class="todo-list-container">
+                <h1>TODO LIST</h1>
                 <ul class="todo-list">
                     <li v-for="(item, index) in todoList">
                         <!-- <input v-model="input" type="checkbox" name="done" :value="index"> -->

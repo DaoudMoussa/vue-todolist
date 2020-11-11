@@ -7,9 +7,16 @@ const app = new Vue({
             'palestra'
         ],
         doneList: [],
-        input:[]
+        input: [],
+        nextTodoItem: ""
     },
     methods: {
-
+        addItem() {
+            this.todoList.push(this.nextTodoItem);
+            this.nextTodoItem = "";
+        },
+        addItemWEnter(event) {
+            if(event.keyCode == 13) this.addItem();
+        }
     }
 });
