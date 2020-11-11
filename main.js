@@ -6,37 +6,39 @@ const app = new Vue({
             'leggere',
             'palestra'
         ],
-        doneList: [],
-        // input: [],
         nextTodoItem: "",
         statusArray: [],
-        // itemStatus: ""
     },
     methods: {
         addItem() {
-            this.todoList.push(this.nextTodoItem);
-            this.statusArray.push("not-done");
+            if(this.nextTodoItem.length > 3) {
+                this.todoList.push(this.nextTodoItem);
+                this.statusArray.push("not-done");
+            } else {
+                alert("l'item dev'essere di almeno 4 caratteri!!")
+            }
             this.nextTodoItem = "";
         },
         addItemWEnter(event) {
             if(event.keyCode == 13) this.addItem();
         },
         toggleItem(index) {
-            console.log(index);
-            console.log(this.statusArray[index]);
 
+            let checkbox = document.getElementById('checkbox' + index);
             if (this.statusArray[index] == "not-done") {
-                this.statusArray[index] = "done";
+                Vue.set(this.statusArray, index, 'done')
+                checkbox.checked = true;
             } else {
-                this.statusArray[index] = "not-done";
+                Vue.set(this.statusArray, index, 'not-done')
+                checkbox.checked = false;
             }
 
-            console.log(this.statusArray[index]);
-            // Perché non cambia classe???
+        },
+        getCheckboxId(index) {
+            return "checkbox" + index;
         }
     },
     created() {
         this.todoList.forEach(() => this.statusArray.push("not-done"))
-
     }
 });

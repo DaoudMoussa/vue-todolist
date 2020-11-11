@@ -20,11 +20,12 @@
                     <li v-for="(item, index) in todoList"
                         :class="statusArray[index]"
                         @click="toggleItem(index)">
-                        <input type="checkbox" :name="item" :value="index">
+                        <input :id="getCheckboxId(index)" type="checkbox" :name="item" :value="index">
                         <label :for="item">{{ item }}</label>
                     </li>
                 </ul>
             </div>
+            
             <div class="done-list-container">
 
             </div>
